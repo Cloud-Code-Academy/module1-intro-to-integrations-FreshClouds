@@ -16,8 +16,7 @@ public class JSONPlaceholderExercise {
         // 3. Set the HTTP method to 'GET'
         req.setMethod('GET');
         // 4. Send the request and get the response
-        Http http = new Http();
-        HttpResponse res = http.send(req);
+        HttpResponse res = new Http().send(req);
         // 5. Return the response body as string
         return res.getBody();
     }
@@ -39,22 +38,15 @@ public class JSONPlaceholderExercise {
         // 3. Set the HTTP method to 'POST'
         req.setMethod('POST');
         // 4. Create a JSON string with the post data
-        //String postData = '{"title": "' + title + '", "body": "' + body + '", "userId": ' + userId + '}';
-        /*String postData = JSON.serialize(new Map<String, Object>{
+        String postData = JSON.serialize(new Map<String, Object>{
             'title' => title,
             'body' => body,
             'userId' => userId
-        });*/
-        Map<String, Object> postMap = new Map<String, Object>();
-        postMap.put('title', title);
-        postMap.put('body', body);
-        postMap.put('userId', userId);
-        String postData = JSON.serialize(postMap);
+        });
         // 5. Set the request body
         req.setBody(postData);
         // 6. Send the request and get the response
-        Http http = new Http();
-        HttpResponse res = http.send(req);
+        HttpResponse res = new Http().send(req);
         // 7. Return the response body as string
         return res.getBody();
     }
