@@ -1,0 +1,1 @@
+String responseBody = JSONPlaceholderExercise.getPostById(1);
